@@ -1,6 +1,20 @@
 # Python 3.13のベースイメージを使用
 FROM python:3.13-slim
 
+# 必要なシステムパッケージをインストール
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Node.jsをインストール（Claude CLIに必要）
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+# Claude CLIをグローバルにインストール
+RUN npm install -g @anthropic-ai/claude-code
+
 # 作業ディレクトリを設定
 WORKDIR /app
 
