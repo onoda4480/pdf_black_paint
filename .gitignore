@@ -1,6 +1,9 @@
 # PDF
 pdf/
 
+# 個人情報リスト（黒塗り対象）
+redact_list.txt
+
 # Python
 __pycache__/
 *.py[cod]
