@@ -1,5 +1,6 @@
 # PDF
 pdf/
+redacted_*.pdf
 
 # 個人情報リスト（黒塗り対象）
 redact_list.txt
@@ -25,6 +26,9 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Streamlit
+.streamlit/
 
 # ��
 venv/
