@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pdf-black-paint
+    volumes:
+      # ローカルのコードをコンテナにマウント（開発時に便利）
+      - .:/app
+      # SSH鍵とGit設定をマウント（ログイン不要にする）
+      - ~/.ssh:/root/.ssh:ro
+      - ~/.gitconfig:/root/.gitconfig:ro
+    # コンテナを起動したままにする（開発用）
+    stdin_open: true
+    tty: true
+    # 必要に応じてポートを公開
+    # ports:
+    #   - "8000:8000"
